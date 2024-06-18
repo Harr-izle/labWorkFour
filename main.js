@@ -33,18 +33,6 @@ function handleClick() {
 }
 
 //using arrow function
-// const button = document.getElementById('myButton');
-// const outputDiv = document.getElementById('output');
-
-// button.addEventListener('click', () => handleClick(button));
-
-// const handleClick = (buttonElement) => {
-//     const buttonId = buttonElement.id;
-//     const buttonContent = buttonElement.textContent;
-
-//     console.log(buttonId); 
-//     console.log(buttonContent); 
-
-//     const outputText = `Button ID: ${buttonId}, Button Content: ${buttonContent}`;
-//     outputDiv.textContent = outputText;
-// }
+// button.addEventListener('click', () => {
+//     console.log(this); 
+//   });
