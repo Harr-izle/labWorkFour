@@ -14,25 +14,26 @@ person.greet();
 (person.greet.bind(person))()
 
 
-//Event handling and this
 
-const button = document.getElementById('myButton');
-const outputDiv = document.getElementById('output');
 
-button.addEventListener('click', handleClick);
+//Private Data with Closure and this 
 
-function handleClick() {
-    const buttonId = this.id;
-    const buttonContent = this.textContent;
-
-    console.log(buttonId); 
-    console.log(buttonContent); 
-
-    const outputText = `Button ID: ${buttonId}, Button Content: ${buttonContent}`;
-    outputDiv.textContent = outputText;
-}
-
-//using arrow function
-// button.addEventListener('click', () => {
-//     console.log(this); 
-//   });
+function createCounter() {
+    let count = 0; // Private variable
+  
+    return {
+      increment: function() {
+        count++;
+        console.log(`Count: ${count}`);
+      },
+      getCount: function() {
+        return count;
+      }
+    };
+  }
+  
+  const counter = createCounter();
+  counter.increment();
+  counter.increment();
+  counter.increment();
+  console.log(counter.getCount()); 
