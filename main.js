@@ -1,4 +1,4 @@
-//object method and this
+// object method and this
 
 const person = {
     name : 'Harriet Buadee',
@@ -10,5 +10,41 @@ const person = {
 }
 person.greet();
 
-//using bind
+// using bind
 (person.greet.bind(person))()
+
+
+//Event handling and this
+
+const button = document.getElementById('myButton');
+const outputDiv = document.getElementById('output');
+
+button.addEventListener('click', handleClick);
+
+function handleClick() {
+    const buttonId = this.id;
+    const buttonContent = this.textContent;
+
+    console.log(buttonId); 
+    console.log(buttonContent); 
+
+    const outputText = `Button ID: ${buttonId}, Button Content: ${buttonContent}`;
+    outputDiv.textContent = outputText;
+}
+
+//using arrow function
+// const button = document.getElementById('myButton');
+// const outputDiv = document.getElementById('output');
+
+// button.addEventListener('click', () => handleClick(button));
+
+// const handleClick = (buttonElement) => {
+//     const buttonId = buttonElement.id;
+//     const buttonContent = buttonElement.textContent;
+
+//     console.log(buttonId); 
+//     console.log(buttonContent); 
+
+//     const outputText = `Button ID: ${buttonId}, Button Content: ${buttonContent}`;
+//     outputDiv.textContent = outputText;
+// }
