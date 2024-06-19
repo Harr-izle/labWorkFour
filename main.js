@@ -37,3 +37,64 @@ function createCounter() {
   counter.increment();
   counter.increment();
   console.log(counter.getCount()); 
+
+     //Event handling and this
+
+const button = document.getElementById('myButton');
+const outputDiv = document.getElementById('output');
+
+button.addEventListener('click', handleClick);
+
+function handleClick() {
+    const buttonId = this.id;
+    const buttonContent = this.textContent;
+
+    console.log(buttonId); 
+    console.log(buttonContent); 
+
+    const outputText = `Button ID: ${buttonId}, Button Content: ${buttonContent}`;
+    outputDiv.textContent = outputText;
+}
+
+//using arrow function
+// button.addEventListener('click', () => {
+//     console.log(this); 
+//   });
+
+
+//create timer function
+function createTimer(duration, elementId) {
+  const timerElement = document.getElementById(elementId);
+  let remainingTime = duration;
+
+  const timer = setInterval(() => {
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      timerElement.textContent = 'Time\'s up!';
+      console.log('Timer finished!');
+      durationInput.value = '';
+    } else {
+      timerElement.textContent = `${remainingTime} seconds remaining`;
+      remainingTime--;
+    }
+  }, 1000);
+}
+
+const startButton = document.getElementById('start');
+const countDownElement = document.getElementById('countDown');
+const durationInput = document.querySelector('#timer input[type="number"]');
+
+startButton.addEventListener('click', () => {
+  const duration = durationInput.value;
+
+  if (duration === '') {
+    alert('Please enter a duration.');
+    return;
+  }
+
+  createTimer(duration, 'countDown');
+  countDownElement.textContent = `${duration} seconds remaining`;
+});
+ 
+
+
