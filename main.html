@@ -82,6 +82,11 @@ body {
     background-color: blue;
     cursor: pointer;
   }
+
+  #countDown{
+    margin-top: 20px;
+    color: red;
+  }
     </style>
 
 </head>
@@ -122,6 +127,44 @@ function handleClick() {
 // button.addEventListener('click', () => {
 //     console.log(this); 
 //   });
+
+
+//create timer function
+function createTimer(duration, elementId) {
+  const timerElement = document.getElementById(elementId);
+  let remainingTime = duration;
+
+  const timer = setInterval(() => {
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      timerElement.textContent = 'Time\'s up!';
+      console.log('Timer finished!');
+      durationInput.value = '';
+    } else {
+      timerElement.textContent = `${remainingTime} seconds remaining`;
+      remainingTime--;
+    }
+  }, 1000);
+}
+
+const startButton = document.getElementById('start');
+const countDownElement = document.getElementById('countDown');
+const durationInput = document.querySelector('#timer input[type="number"]');
+
+startButton.addEventListener('click', () => {
+  const duration = durationInput.value;
+
+  if (duration === '') {
+    alert('Please enter a duration.');
+    return;
+  }
+
+  createTimer(duration, 'countDown');
+  countDownElement.textContent = `${duration} seconds remaining`;
+});
+ 
+
+
 
    </script>
 </body>
