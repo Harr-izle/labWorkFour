@@ -72,29 +72,27 @@ function createTimer(duration, elementId) {
       clearInterval(timer);
       timerElement.textContent = 'Time\'s up!';
       console.log('Timer finished!');
-      durationInput.value = '';
+      this.durationInput.value = '';
     } else {
       timerElement.textContent = `${remainingTime} seconds remaining`;
       remainingTime--;
     }
   }, 1000);
+
+  this.durationInput = document.querySelector('#timer input[type="number"]');
 }
 
 const startButton = document.getElementById('start');
 const countDownElement = document.getElementById('countDown');
-const durationInput = document.querySelector('#timer input[type="number"]');
 
 startButton.addEventListener('click', () => {
-  const duration = durationInput.value;
+  const duration = document.querySelector('#timer input[type="number"]').value;
 
   if (duration === '') {
     alert('Please enter a duration.');
     return;
   }
 
-  createTimer(duration, 'countDown');
+  createTimer.call(this, duration, 'countDown');
   countDownElement.textContent = `${duration} seconds remaining`;
 });
- 
-
-
