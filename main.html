@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-*{
+      *{
     margin: 0;
     padding: 0;
 }
@@ -17,7 +17,15 @@ body {
     height: 100vh;
     margin: 0;
   }
+  .main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    gap: 20px;
 
+  }
   .btn{
     width: 150px;
     height: 200px;
@@ -46,9 +54,34 @@ body {
    #output{
     margin-top: 30px;
   } 
+  #timer{
+    width: 150px;
+    height: 200px;
+    padding: 50px 50px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
 
-
-
+  #start{
+    width: 150px;
+    height: 50px;
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: background-color 0.3s ease;
+  }
+  #start:hover {
+    background-color: blue;
+    cursor: pointer;
+  }
     </style>
 
 </head>
@@ -57,11 +90,15 @@ body {
     <div class="btn">
       <button id="myButton">Click Me</button>
       <div id="output"></div>
-    
     </div>
+<div id="timer">
+ <input type="number">
+ <button id="start">Start</button>
+ <div id="countDown"></div>
+</div>
 
-  
-
+  </div>
+    
    <script>
     //Event handling and this
 
